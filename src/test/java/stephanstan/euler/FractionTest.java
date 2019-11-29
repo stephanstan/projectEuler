@@ -16,7 +16,7 @@ public class FractionTest {
             for(i=control-1;i>0;i--){
                 if(i<j){
                     frac=new Fraction(i,j);
-                    System.out.println(frac.getNumerator()+" / "+frac.getDenominator());
+                    System.out.println(frac.getNumerator()+" / "+frac.getDenominator() + " - " + frac.getValue());
                 }
             }
         }
@@ -47,7 +47,7 @@ public class FractionTest {
 
         for ( i = 1; i < 8; i++) {
             frac = new Fraction(i,8);
-            System.out.println(frac.getNumerator() +" / " + frac.getDenominator());
+            System.out.println(frac.getNumerator() +" / " + frac.getDenominator() + " - " + frac.getValue() );
         }
     }
 }
