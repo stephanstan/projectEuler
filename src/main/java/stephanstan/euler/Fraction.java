@@ -45,4 +45,10 @@ public class Fraction {
     public int getDenominator() {
         return denominator;
     }
+
+    public String toString()
+    {
+        return this. numerator+ " / " + this.denominator +
+                " - " + this.value;
+    }
 }
