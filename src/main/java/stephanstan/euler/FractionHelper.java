@@ -1,0 +1,18 @@
+package stephanstan.euler;
+
+public class FractionHelper {
+
+    public FractionHelper() {
+    }
+
+    /** @return the greatest common denominator */
+    public static long gcm(long a, long b) {
+        return b == 0 ? a : gcm(b, a % b); // Not bad for one line of code :)
+    }
+
+    Fraction createReducedFraction(long numerator, long denominator) {
+        long gcm = gcm(numerator, denominator);
+
+        return new Fraction(numerator / gcm, denominator / gcm);
+    }
+}

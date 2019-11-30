@@ -8,7 +8,7 @@ package stephanstan.euler;
  */
 public class Fraction {
 
-    public Fraction(int numerator, int denominator)
+    public Fraction( long numerator, long denominator)
     {
         this.numerator = numerator;
         this.denominator = denominator;
@@ -16,11 +16,10 @@ public class Fraction {
     }
 
     //  final static Log logger = LogFactory.getLog(Fraction.class);
-    private int numerator;
-    private int denominator;
+    private long numerator;
+    private long denominator;
 
     private double value;
-
 
     public double getValue() {
         return value;
@@ -30,19 +29,19 @@ public class Fraction {
         this.value = value;
     }
 
-    public void setNumerator(int numerator) {
+    public void setNumerator(long numerator) {
         this.numerator = numerator;
     }
 
-    public void setDenominator(int denominator) {
+    public void setDenominator(long denominator) {
         this.denominator = denominator;
     }
 
-    public int getNumerator() {
+    public long getNumerator() {
         return numerator;
     }
 
-    public int getDenominator() {
+    public long getDenominator() {
         return denominator;
     }
 

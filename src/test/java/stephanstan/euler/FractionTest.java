@@ -9,6 +9,38 @@ import java.util.Collections;
 
 public class FractionTest {
 
+    @Test
+void createHCFFractions(){
+    Fraction frac;
+    long i,j;
+    long control=10;
+
+    ArrayList<Fraction> ar = new ArrayList<Fraction>();
+    FractionHelper helper = new FractionHelper();
+
+    for(j=control;j>1;j--){
+        for(i=control-1;i>0;i--){
+            if(i<j){
+                frac = helper.createReducedFraction(i,j);
+                //                  if (frac.getValue() > (double)0.42857142857142850 && frac.getValue() < (double)0.43 )
+                ar.add(frac);
+//                    System.out.println(frac.getNumerator()+" / "+frac.getDenominator() + " - " + frac.getValue());
+            }
+        }
+    }
+
+//        System.out.println("Unsorted");
+    //      for (int k=0; k <ar.size(); k++)
+    //        System.out.println(ar.get(k));
+
+    Collections.sort(ar, new FractionComparator());
+
+    System.out.println("\nSorted by value");
+    for (int m=0; m<ar.size(); m++)
+//            if (ar.get(m).getValue() > (double)0.42857142857142850 && ar.get(m).getValue() < (double)0.43)
+        System.out.println(ar.get(m));
+}
+
     /** @return the greatest common denominator */
     public static long gcm(long a, long b) {
         return b == 0 ? a : gcm(b, a % b); // Not bad for one line of code :)
@@ -34,17 +66,15 @@ public class FractionTest {
     }
 
 
-
-
     /**
      * best method so far
      */
- //   @Disabled
+   @Disabled
     @Test
     void sortFractions(){
         Fraction frac;
-        int i,j;
-        int control=8;
+        long i,j;
+        long control=8;
 
         ArrayList<Fraction> ar = new ArrayList<Fraction>();
 
@@ -76,8 +106,8 @@ public class FractionTest {
     @Test
     void howManyFractionsWouldYouLike(){
         Fraction frac;
-        int i,j;
-        int control=8;
+        long i,j;
+        long control=8;
 
         for(j=control;j>1;j--){
             for(i=control-1;i>0;i--){
@@ -94,7 +124,7 @@ public class FractionTest {
     @Test
     void basicObjectDesc() {
         Fraction frac;
-        int i,j;
+        long i,j;
 
         for (j = 8; j > 1; j--) {
             for (i = 7; i > 0; i--) {
@@ -110,7 +140,7 @@ public class FractionTest {
     @Test
     void basicObjectAsc() {
         Fraction frac;
-        int i;
+        long i;
 
         for ( i = 1; i < 8; i++) {
             frac = new Fraction(i,8);
