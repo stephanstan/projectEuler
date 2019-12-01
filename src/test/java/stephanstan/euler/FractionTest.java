@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-
 /**
  * Consider the fraction, n/d, where n and d are positive integers. If n<d and HCF(n,d)=1, it is called a reduced proper fraction.
   * If we list the set of reduced proper fractions for d ≤ 8 in ascending order of size, we get:
@@ -25,22 +24,23 @@ import java.util.*;
  */
 public class FractionTest {
 
+//    @Disabled
     @Test
-    void createHCFFractions(){
+    void createHCFFractions() {
         Fraction frac;
-        long i,j;
-        long control=100000;
+        long i, j;
+        long control = 100;
 
         ArrayList<Fraction> ar = new ArrayList<Fraction>();
         FractionHelper helper = new FractionHelper();
 
-        for(j=control;j>1;j--){
-            for(i=control-1;i>0;i--){
-                if(i<j){
-                    frac = helper.createReducedFraction(i,j);
-                  if (frac.getValue() > (double) 0.42855712426154 && frac.getValue() < (double)0.4285761306036469 )
-                    ar.add(frac);
-    //                    System.out.println(frac.getNumerator()+" / "+frac.getDenominator() + " - " + frac.getValue());
+        for (j = control; j > 1; j--) {
+            for (i = control - 1; i > 0; i--) {
+                if (i < j) {
+                    frac = helper.createReducedFraction(i, j);
+                    if (frac.getValue() > (double) 0.42855712426154 && frac.getValue() < (double) 0.4285761306036469)
+                        ar.add(frac);
+                    //                    System.out.println(frac.getNumerator()+" / "+frac.getDenominator() + " - " + frac.getValue());
                 }
             }
         }
@@ -50,20 +50,18 @@ public class FractionTest {
         //        System.out.println("Unsorted");
         //        for (int k=0; k <ar.size(); k++)
         //           System.out.println(ar.get(k));
-        Set set = new TreeSet<Fraction>(new FractionComparator() );
+
+        // copy into a Set to make the objects distinct using the supplied comparator
+        Set set = new TreeSet<Fraction>(new FractionComparator());
         set.addAll(ar);
 
+        ArrayList<Fraction> ar2 = new ArrayList(set);
 
-     ArrayList<Fraction> ar2  = new ArrayList(set);
-
-    System.out.println("\nSorted by value");
-    for (int m=0; m<ar2.size(); m++)
-//            if (ar2.get(m).getValue() > (double)0.42857142857142850 && ar.get(m).getValue() < (double)0.43)
-    {
-        System.out.println(ar2.get(m));
-//        System.out.print(ar2.get(m) + ", ");
+        System.out.println("\nSorted by value");
+        for (int m = 0; m < ar2.size(); m++) {
+            System.out.println(ar2.get(m));
+        }
     }
-}
 
     /** @return the greatest common denominator */
     public static long gcm(long a, long b) {
@@ -75,7 +73,7 @@ public class FractionTest {
         return (a / gcm) + "/" + (b / gcm);
     }
 
-    @Disabled
+//    @Disabled
     @Test
     void testGCM()
     {
@@ -88,7 +86,6 @@ public class FractionTest {
     {
         System.out.println(asFraction(5,10));
     }
-
 
     /**
      * best method so far

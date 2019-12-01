@@ -3,13 +3,23 @@ package stephanstan.euler;
 //import org.apache.commons.logging.Log;
 //import org.apache.commons.logging.LogFactory;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * https://www.geeksforgeeks.org/comparator-interface-java/
  */
 public class Fraction {
 
+    private static Logger logger = LogManager.getLogger(Fraction.class);
+
     public Fraction( long numerator, long denominator)
     {
+        logger.trace("Entering application.");
+        logger.error("This is an test error log message");
+        logger.info("---------------------------");
+        logger.trace("Exit 1.");
+
         this.numerator = numerator;
         this.denominator = denominator;
         this.setValue( ((double) numerator) / ((double) denominator) );
