@@ -37,7 +37,7 @@ dependencies {
 
     // Use JUnit Jupiter API for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.1'
-
+    testCompile("org.junit.jupiter:junit-jupiter-params:5.4.2")
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
 }
@@ -48,6 +48,13 @@ application {
 }
 
 test {
+   // systemProperty 'java.util.logging.manager', 'org.apache.logging.log4j.jul.LogManager'
     // Use junit platform for unit tests
-    useJUnitPlatform()
+    // https://junit.org/junit5/docs/current/user-guide/#running-tests
+    useJUnitPlatform {
+//        includeTags 'fast', 'smoke & feature-a'
+        // excludeTags 'slow', 'ci'
+        includeEngines 'junit-jupiter'
+        // excludeEngines 'junit-vintage'
+    }
 }
