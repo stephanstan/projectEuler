@@ -148,10 +148,10 @@ public class Problem81MatrixTest {
     void createRelationshipCypher() {
         int i, j;
         for (j = 0; j < 80; j++) {
-            for (i = 0; i < 80; i++) {
-                System.out.println("(r" + (j+1) + "c" + (i+1) + ")-[:ROAD cost:" + matrix[j][i] +"}]->(r" + (j+1) + "c" + (i+2) + "),");
+            for (i = 1; i < 80; i++) {
+                System.out.println("(r" + (j+1) + "c" + (i) + ")-[:ROAD {cost:" + matrix[j][i] +"}]->(r" + (j+1) + "c" + (i+1) + "),");
             }
-            System.out.println("");
+//            System.out.println("");
         }
     }
 
