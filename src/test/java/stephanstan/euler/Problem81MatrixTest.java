@@ -132,18 +132,26 @@ public class Problem81MatrixTest {
         logger.info("--------========================================================================-------------------" + matrix[0][0] );
     }
 
-    @Disabled
+//    @Disabled
     @Test
     void createNodeCypher() {
         int i, j;
         for (j = 0; j < 80; j++) {
             for (i = 0; i < 80; i++) {
-               System.out.print("(r" + (j+1) + "c" + (i+1) +":Loc {name:\"" + matrix[j][i] +"\"}), ");
+               System.out.print("(r" + (j+1) + "c" + (i+1) +":Loc {name:\" r" + (j+1) + "_c" + (i+1)  + "_" + matrix[j][i] +"\"}), ");
             }
             System.out.println("");
         }
     }
 
+    /*
+    * https://github.com/neo4j-contrib/neo4j-graph-algorithms/issues/152
+    * https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/shortest-path/?_ga=2.169786401.145627478.1575437132-1726906472.1575437132#algorithms-shortest-path-limitations
+    * https://projecteuler.net/problem=81
+    * https://neo4j.com/blog/graph-algorithms-neo4j-shortest-path/
+    *
+    * */
+ /*   @Disabled
     @Test
     void createRelationshipCypher() {
         int i, j;
@@ -154,7 +162,16 @@ public class Problem81MatrixTest {
 //            System.out.println("");
         }
     }
-
+*/
+    @Test
+    void createDownCypher() {
+        int i, j;
+        for (j = 1; j < 80; j++) {
+            for (i = 0; i < 80; i++) {
+                System.out.println("(r" + (j) + "c" + (i+1) + ")-[:ROAD {cost:" + matrix[j][i] +"}]->(r" + (j+1) + "c" + (i+1) + "),");
+            }
+        }
+    }
 
     /*
         https://www.baeldung.com/java-csv-file-array

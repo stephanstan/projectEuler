@@ -48,7 +48,7 @@ application {
 }
 
 test {
-   // systemProperty 'java.util.logging.manager', 'org.apache.logging.log4j.jul.LogManager'
+   // systemProperty 'java.util.logging.manager',  'org.apache.logging.log4j.jul.LogManager'
     // Use junit platform for unit tests
     // https://junit.org/junit5/docs/current/user-guide/#running-tests
     useJUnitPlatform {

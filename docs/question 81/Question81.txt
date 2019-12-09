@@ -1,0 +1,102 @@
+MERGE (a:Loc {name:"A"})
+MERGE (b:Loc {name:"B"})
+MERGE (c:Loc {name:"C"})
+MERGE (d:Loc {name:"D"})
+MERGE (e:Loc {name:"E"})
+MERGE (f:Loc {name:"F"})
+MERGE (a)-[:ROAD {cost:50}]->(b)
+MERGE (a)-[:ROAD {cost:50}]->(c)
+MERGE (a)-[:ROAD {cost:100}]->(d)
+MERGE (b)-[:ROAD {cost:40}]->(d)
+MERGE (c)-[:ROAD {cost:40}]->(d)
+MERGE (c)-[:ROAD {cost:80}]->(e)
+MERGE (d)-[:ROAD {cost:30}]->(e)
+MERGE (d)-[:ROAD {cost:80}]->(f)
+MERGE (e)-[:ROAD {cost:40}]->(f);
+
+
+
+
+
+     AA	  A	B	C	D	E
+	 131	673	234	103	18	
+
+	F	G	H	I	J
+	 201	96	342	965	150
+
+	K	L	M	N	O
+	 630	803	746	422	111
+
+	P	Q	R	S	T	
+	 537	699	497	121	956
+	 
+	 U	V	W	X	Y
+	 805	732	524	37	331
+	 
+	 MERGE (aa:Loc {name:"AA"})
+	 MERGE (a:Loc {name:"A"})
+	 MERGE (b:Loc {name:"B"})
+	 MERGE (c:Loc {name:"C"})
+	 MERGE (d:Loc {name:"D"})
+	 MERGE (e:Loc {name:"E"})
+	 MERGE (f:Loc {name:"F"})
+	 MERGE (g:Loc {name:"G"})
+	 MERGE (h:Loc {name:"H"})
+	 MERGE (i:Loc {name:"I"})
+	 MERGE (j:Loc {name:"J"})
+	 MERGE (k:Loc {name:"K"})
+	 MERGE (l:Loc {name:"L"})
+	 MERGE (m:Loc {name:"M"})
+	 MERGE (n:Loc {name:"N"})
+	 MERGE (o:Loc {name:"O"})
+	 MERGE (p:Loc {name:"P"})
+	 MERGE (q:Loc {name:"Q"})
+	 MERGE (r:Loc {name:"R"})
+	 MERGE (s:Loc {name:"S"})
+	 MERGE (t:Loc {name:"T"})
+	 MERGE (u:Loc {name:"U"})
+	 MERGE (v:Loc {name:"V"})
+	 MERGE (w:Loc {name:"W"})
+	 MERGE (x:Loc {name:"X"})
+	 MERGE (y:Loc {name:"Y"})
+MERGE (aa)-[:ROAD {cost:131}]->(a)
+MERGE (a)-[:ROAD {cost:673}]->(b)
+MERGE (b)-[:ROAD {cost:234}]->(c)
+MERGE (c)-[:ROAD {cost:103}]->(d)
+MERGE (d)-[:ROAD {cost:18}]->(e)
+MERGE (a)-[:ROAD {cost:201}]->(f)
+MERGE (f)-[:ROAD {cost:96}]->(g)
+MERGE (g)-[:ROAD {cost:342}]->(h)
+MERGE (h)-[:ROAD {cost:965}]->(i)
+MERGE (i)-[:ROAD {cost:150}]->(j)
+MERGE (b)-[:ROAD {cost:96}]->(g)
+MERGE (c)-[:ROAD {cost:342}]->(h)
+MERGE (d)-[:ROAD {cost:965}]->(i)
+MERGE (e)-[:ROAD {cost:150}]->(j)
+MERGE (k)-[:ROAD {cost:803}]->(l)
+MERGE (l)-[:ROAD {cost:746}]->(m)
+MERGE (m)-[:ROAD {cost:422}]->(n)
+MERGE (n)-[:ROAD {cost:111}]->(o)
+MERGE (f)-[:ROAD {cost:630}]->(k)
+MERGE (g)-[:ROAD {cost:803}]->(l)
+MERGE (h)-[:ROAD {cost:746}]->(m)
+MERGE (i)-[:ROAD {cost:422}]->(n)
+MERGE (j)-[:ROAD {cost:111}]->(o)
+MERGE (p)-[:ROAD {cost:699}]->(q)
+MERGE (q)-[:ROAD {cost:497}]->(r)
+MERGE (r)-[:ROAD {cost:121}]->(s)
+MERGE (s)-[:ROAD {cost:956}]->(t)
+MERGE (k)-[:ROAD {cost:537}]->(p)
+MERGE (l)-[:ROAD {cost:699}]->(q)
+MERGE (m)-[:ROAD {cost:497}]->(r)
+MERGE (n)-[:ROAD {cost:121}]->(s)
+MERGE (o)-[:ROAD {cost:956}]->(t)
+MERGE (u)-[:ROAD {cost:732}]->(v)
+MERGE (v)-[:ROAD {cost:524}]->(w)
+MERGE (w)-[:ROAD {cost:37}]->(x)
+MERGE (x)-[:ROAD {cost:331}]->(y)
+MERGE (p)-[:ROAD {cost:805}]->(u)
+MERGE (q)-[:ROAD {cost:732}]->(v)
+MERGE (r)-[:ROAD {cost:524}]->(w)
+MERGE (s)-[:ROAD {cost:37}]->(x)
+MERGE (t)-[:ROAD {cost:331}]->(y);

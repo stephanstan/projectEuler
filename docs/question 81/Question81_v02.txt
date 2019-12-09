@@ -1,0 +1,68 @@
+/*
+     AA	  A	B	C	D	E
+	 131	673	234	103	18	
+
+	F	G	H	I	J
+	 201	96	342	965	150
+
+	K	L	M	N	O
+	 630	803	746	422	111
+
+	P	Q	R	S	T	
+	 537	699	497	121	956
+	 
+	 U	V	W	X	Y
+	 805	732	524	37	331
+*/	 
+CREATE (aa:Loc {name:"AA"}), 
+(a:Loc {name:"A"}), (b:Loc {name:"B"}), (c:Loc {name:"C"}), (d:Loc {name:"D"}), (e:Loc {name:"E"}),
+(f:Loc {name:"F"}), (g:Loc {name:"G"}), (h:Loc {name:"H"}), (i:Loc {name:"I"}),	(j:Loc {name:"J"}),
+(k:Loc {name:"K"}), (l:Loc {name:"L"}), (m:Loc {name:"M"}), (n:Loc {name:"N"}), (o:Loc {name:"O"}),
+(p:Loc {name:"P"}), (q:Loc {name:"Q"}), (r:Loc {name:"R"}), (s:Loc {name:"S"}), (t:Loc {name:"T"}),
+(u:Loc {name:"U"}), (v:Loc {name:"V"}),	(w:Loc {name:"W"}), (x:Loc {name:"X"}),	(y:Loc {name:"Y"}),
+(aa)-[:ROAD {cost:131}]->(a),
+ (a)-[:ROAD {cost:673}]->(b),
+ (b)-[:ROAD {cost:234}]->(c),
+ (c)-[:ROAD {cost:103}]->(d),
+ (d)-[:ROAD {cost:18}]->(e),
+ (a)-[:ROAD {cost:201}]->(f),
+ (f)-[:ROAD {cost:96}]->(g),
+ (g)-[:ROAD {cost:342}]->(h),
+ (h)-[:ROAD {cost:965}]->(i),
+ (i)-[:ROAD {cost:150}]->(j),
+ (b)-[:ROAD {cost:96}]->(g),
+ (c)-[:ROAD {cost:342}]->(h),
+ (d)-[:ROAD {cost:965}]->(i),
+ (e)-[:ROAD {cost:150}]->(j),
+ (k)-[:ROAD {cost:803}]->(l),
+ (l)-[:ROAD {cost:746}]->(m),
+ (m)-[:ROAD {cost:422}]->(n),
+ (n)-[:ROAD {cost:111}]->(o),
+ (f)-[:ROAD {cost:630}]->(k),
+ (g)-[:ROAD {cost:803}]->(l),
+ (h)-[:ROAD {cost:746}]->(m),
+ (i)-[:ROAD {cost:422}]->(n),
+ (j)-[:ROAD {cost:111}]->(o),
+ (p)-[:ROAD {cost:699}]->(q),
+ (q)-[:ROAD {cost:497}]->(r),
+ (r)-[:ROAD {cost:121}]->(s),
+ (s)-[:ROAD {cost:956}]->(t),
+ (k)-[:ROAD {cost:537}]->(p),
+ (l)-[:ROAD {cost:699}]->(q),
+ (m)-[:ROAD {cost:497}]->(r),
+ (n)-[:ROAD {cost:121}]->(s),
+ (o)-[:ROAD {cost:956}]->(t),
+ (u)-[:ROAD {cost:732}]->(v),
+ (v)-[:ROAD {cost:524}]->(w),
+ (w)-[:ROAD {cost:37}]->(x),
+ (x)-[:ROAD {cost:331}]->(y),
+ (p)-[:ROAD {cost:805}]->(u),
+ (q)-[:ROAD {cost:732}]->(v),
+ (r)-[:ROAD {cost:524}]->(w),
+ (s)-[:ROAD {cost:37}]->(x),
+ (t)-[:ROAD {cost:331}]->(y);
+
+
+MATCH (o:Loc{name:'AA'}), (d:Loc{name:'Y'}) 
+      CALL apoc.algo.dijkstra(o,d,'ROAD>', 'cost') yield path, weight
+RETURN path, weight;
