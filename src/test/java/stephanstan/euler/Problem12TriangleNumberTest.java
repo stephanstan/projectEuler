@@ -12,8 +12,8 @@ import java.util.List;
 /**
 
  */
-public class PrimeNumberTest {
-    private static Logger logger = LogManager.getLogger(PrimeNumberTest.class);
+public class Problem12TriangleNumberTest {
+    private static Logger logger = LogManager.getLogger(Problem12TriangleNumberTest.class);
 
     public static List<Integer> sieveOfEratosthenes(int n) {
         boolean prime[] = new boolean[n + 1];
@@ -37,11 +37,33 @@ public class PrimeNumberTest {
     @Disabled
     @Test
     void primeNumbers() {
-        logger.info("--------==-----" + sieveOfEratosthenes(500000) );
-
+        logger.info("--------==-----" + sieveOfEratosthenes(28));
     }
 
+    @Test
+    void triangleSequence(){
+            long i, j;
+            long sum = 0;
 
+                for (i = 1; i <= 10000; i++) {
+              //      System.out.print("i: " + i +" -> ");
+                    for (j = 1; j <= i; j++) {
+                        sum = sum + j;
+//                        System.out.print(" " + j + " ");
+                    }
+//                    System.out.println(sum + "");
+                    System.out.print("Factors of " + sum + " are: ");
+                    for(long k = 1; k <= sum; ++k) {
+                        if (sum % k == 0) {
+                            System.out.print(k + " ");
+                        }
+                    }
+                    System.out.println("");
+                    sum =0;
+                }
+    }
+
+    @Disabled
     @Test
     void primeNumberSum() {
 //        logger.info("--------==-----" + sieveOfEratosthenes(2000000) );
