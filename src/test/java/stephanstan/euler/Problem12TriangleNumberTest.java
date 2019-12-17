@@ -44,23 +44,34 @@ public class Problem12TriangleNumberTest {
     void triangleSequence(){
             long i, j;
             long sum = 0;
+            int count =0;
+            long maxSum =0;
+            int maxCount = 0;
 
-                for (i = 1; i <= 10000; i++) {
+                for (i = 12000; i <= 13000; i++) {
               //      System.out.print("i: " + i +" -> ");
                     for (j = 1; j <= i; j++) {
                         sum = sum + j;
 //                        System.out.print(" " + j + " ");
                     }
 //                    System.out.println(sum + "");
-                    System.out.print("Factors of " + sum + " are: ");
+//                   System.out.print("Factors of " + sum + " are: ");
                     for(long k = 1; k <= sum; ++k) {
                         if (sum % k == 0) {
-                            System.out.print(k + " ");
+//                          System.out.print(k + " ");
+                            count++;
                         }
                     }
-                    System.out.println("");
+  //                 System.out.println("count = " + (count -1));
+                    if ((count-1) > maxCount){
+                        maxCount = count-1;
+                        maxSum = sum;
+                    }
+                    count =0;
                     sum =0;
                 }
+        System.out.println("Triangle Number: " + maxSum + " has a  maxCount of " + maxCount );
+
     }
 
     @Disabled
@@ -77,9 +88,6 @@ public class Problem12TriangleNumberTest {
         logger.info("------============--==-----" + sum );
 // */
     }
-
-
-
 
 
 }
